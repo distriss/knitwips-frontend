@@ -1,0 +1,47 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: 'Timeburner';
+  src: url(./fonts/TimeburnerBold-peGR.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SueEllenFrancisco';
+  src: url(./fonts/SueEllenFrancisco-Regular.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'Timeburner';
+  src: url(./fonts/TimeburnerBold-peGR.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SueEllenFrancisco';
+  src: url(./fonts/SueEllenFrancisco-Regular.ttf) format('truetype');
+}
+
+.logo-font {
+  font-family: 'Timeburner', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 7rem;
+  margin: 0;
+}
+
+.altfont {
+  font-family: 'SueEllenFrancisco', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
+.logo-altfont {
+  font-size: 3rem;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
