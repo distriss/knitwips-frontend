@@ -17,6 +17,7 @@ export default {
         darkpink: '#cb5287',
         sage: '#6c8184',
         lightsage:'#92a6a2',
+        darkgray: '#5e5e5e',
         lightgray: '#c4c4c4',
         beige: '#d7cdcc',
       }

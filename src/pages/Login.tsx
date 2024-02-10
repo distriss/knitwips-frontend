@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import logo from '../logo.svg'
 import '../App.css'
+import LoginForm from '../components/LoginForm'
 
 const LogIn = () => {
     return (
         <>
-          <header className="header bg-sage">
+          <header className="header bg-sage pt-10">
             <img src={logo} className="logo" alt="logo" />
-            <h1 className="logo-font my-10 text-9xl whitespace-nowrap">Knit Wips</h1>
-            <p className="altfont logo-altfont text-pink">
+            <h1 className="logo-font my-6 text-9xl whitespace-nowrap">KnitWips</h1>
+            <p className="altfont text-5xl text-pink mb-8 ">
               Create, Track & Share: The Ultimate Knitters Companion
             </p>
-            <div>
-              <p>this is login page</p>
-              <button 
-                  className='py-2 px-8 rounded-full bg-pink hover:bg-darkpink align-centertransition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'> Log In
-              </button>
-            </div>        
+            <LoginForm />       
           </header>
         </>
       )
