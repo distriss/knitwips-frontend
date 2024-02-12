@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import LoginData from '../interfaces/LoginData';
 
 export default function LoginForm() {
+
+
   const [formData, setFormData] = useState<LoginData>({
     email: '',
     password: '',
@@ -25,31 +28,37 @@ export default function LoginForm() {
     <div className="w-full max-w-xs ">
         <form className="px-8" onSubmit={handleSubmit}>
           <div className="mb-1">
-            <label
+            <label                
+                htmlFor="email"
                 className="text-base text-pink font-bold text-shadow" 
-                htmlFor="loginEmail">Email:</label>
-            <input
-                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                >
+                  Email:
+            </label>
+            <input                
                 type="email"
-                id="loginEmail"
+                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
             />
           </div>
           <div className="mb-2">
-            <label 
+            <label                 
+                htmlFor="password"
                 className="text-base text-pink font-bold text-shadow"
-                htmlFor="loginPassword">Password:</label>
-            <input
-                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                >
+                  Password:
+            </label>
+            <input                
                 type="password"
-                id="loginPassword"
+                id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 required
+                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
             />
             <a className="align-baseline font-bold text-sm text-darkgray hover:text-pink" href="#">
               Forgot Password?
