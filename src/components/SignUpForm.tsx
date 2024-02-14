@@ -23,9 +23,11 @@ export default function SignUpForm() {
             onSubmit={handleSubmit(onSubmit)} 
             className="px-8">
             <div className="mb-1">
-                <label
-                   className="text-base text-pink font-bold text-shadow" 
-                   htmlFor="username">Username:
+                <label                   
+                    htmlFor="username"
+                    className="text-base text-pink font-bold text-shadow" 
+                    >
+                      Username:                   
                 </label>
                 <input                    
                     type="username"
@@ -80,7 +82,7 @@ export default function SignUpForm() {
                         value: true,
                         message: "A Password is required",
                       }, 
-                  })}
+                    })}
                     className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
                 />
                 <p className="text-white text-sm mt-1 italic">{errors.password?.message}</p>

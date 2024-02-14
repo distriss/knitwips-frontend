@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import logo from '../logo.svg'
 import '../App.css'
+import NavBar from '../components/NavBar'
 
-function HomePage() {
+export default function HomePage() {
 
     return (
         <>
-          <header className="header bg-sage pt-10">
-            <img src={logo} className="logo" alt="logo" />
+          <header className="header bg-sage">
+            <NavBar />
+            <img src={logo} className="logo mt-10" alt="logo" />
             <h1 className="logo-font my-6 text-9xl whitespace-nowrap text-shadow">KnitWips</h1>
             <p className="altfont text-5xl text-pink text-shadow mb-10">
               Create, Track & Share: The Ultimate Knitters Companion
@@ -30,4 +32,3 @@ function HomePage() {
 
 }
 
-export default HomePage;
