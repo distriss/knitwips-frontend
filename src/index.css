@@ -3,37 +3,42 @@
 @import "tailwindcss/utilities";
 
 @font-face {
-  font-family: 'Timeburner';
-  src: url(./fonts/TimeburnerBold-peGR.ttf) format('truetype');
+  font-family: 'Qumpellkano';
+  src: url(./fonts/Qumpellkano12-A6D2.otf) format('truetype');
 }
 
 @font-face {
-  font-family: 'SueEllenFrancisco';
-  src: url(./fonts/SueEllenFrancisco-Regular.ttf) format('truetype');
+  font-family: 'AbrilFatface';
+  src: url(./fonts/AbrilFatface-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(./fonts/Poppins-Light.ttf) format('truetype');
+}
+
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@font-face {
-  font-family: 'Timeburner';
-  src: url(./fonts/TimeburnerBold-peGR.ttf) format('truetype');
-}
 
-@font-face {
-  font-family: 'SueEllenFrancisco';
-  src: url(./fonts/SueEllenFrancisco-Regular.ttf) format('truetype');
-}
+/* #banner {
+  background-image: linear-gradient(rgba(128, 59, 33, 0.25), 50%, rgba(71, 71, 71, 0.35), 90%, rgba(0,0,0,0.50), rgba(0,0,0,0.60)), url("../public/assets/img/oksana-maselko-unsplash.png");
+  background-position: center, center;
+	background-repeat: repeat, no-repeat;
+	background-size: auto, cover;
+} */
+
 
 .logo-font {
-  font-family: 'Timeburner', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Qumpellkano', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .altfont {
-  font-family: 'SueEllenFrancisco', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'AbrilFatface', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
 }
 
@@ -45,3 +50,6 @@ body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.356);
 }
 
+.box-shadow {
+  box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.25);
+}

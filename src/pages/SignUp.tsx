@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm';
 export default function SignUp() {
     return (
         <>
-          <header className="header bg-sage pt-10">
+          <header className="header bg-sage">
             <NavBar />
             <img src={logo} className="logo" alt="logo" />
             <h1 className="logo-font my-6 text-9xl whitespace-nowrap text-shadow">KnitWips</h1>

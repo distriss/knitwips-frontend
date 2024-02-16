@@ -17,7 +17,7 @@ export default function NavBar() {
 
     return (
         <nav 
-            className="w-full flex flex-wrap items-center justify-between relative bg-white py-2 text-pink shadow-lg hover:text-darkpink focus:text-sage dark:bg-neutral-600 lg:py-4">
+            className="w-full flex flex-wrap items-center justify-between relative bg-main1 py-2 shadow-lg  dark:bg-neutral-600 lg:py-4">
             <div className="flex items-center justify-start px-4">
                 <a 
                     href="/"
@@ -30,7 +30,7 @@ export default function NavBar() {
                         className="inline mx-2" 
                     />
                     <span 
-                        className="text-4xl font-semibold text-pink logo-font text-shadow-sm">
+                        className="text-4xl font-semibold text-primary1 logo-font text-shadow-sm">
                         KnitWips
                     </span>
                 </a>
@@ -39,24 +39,24 @@ export default function NavBar() {
                 className="flex items-center justify-end px-4">
                 <a 
                     href="/"
-                    className="text-2xl px-4 mx-2 font-semibold text-pink logo-font hover:text-darkpink text-shadow-sm">
+                    className="text-2xl px-4 mx-2 font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap">
                         Home
                 </a>
                 <a 
                     href="/guest"
-                    className="text-2xl px-4 mx-2  font-semibold text-pink hover:text-darkpink logo-font text-shadow-sm" >
+                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
                         Guest
                 </a>
                 <a 
                     href="/authtest"
-                    className="text-2xl px-4 mx-2  font-semibold text-pink hover:text-darkpink logo-font text-shadow-sm" >
+                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
                         Auth
                 </a>
                 {
                     isLoggedIn ? (
                         <Link 
                         to="/login"
-                        className="logo-font text-2xl py-2 px-4 mx-2 rounded-full bg-pink text-white text-shadow-sm hover:bg-darkpink align-center transition ease-in-out hover:scale-105 duration-300 whitespace-nowrap"
+                        className="altfont text-2xl py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center transition ease-in-out hover:scale-110 duration-300 whitespace-nowrap"
                         >
                         Log In
                         </Link>
@@ -66,12 +66,6 @@ export default function NavBar() {
                             type="button"
                             onClick={handleLogOut}
                             value="Log Out"/>
-                        // <Link 
-                        // to="/logout"
-                        // className="logo-font text-2xl py-2 px-4 mx-2 rounded-full bg-pink text-white text-shadow-sm hover:bg-darkpink align-center transition ease-in-out hover:scale-105 duration-300 whitespace-nowrap"
-                        // >
-                        //     Log Out
-                        // </Link> 
                     )
                 }
                  

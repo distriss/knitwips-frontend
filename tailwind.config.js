@@ -13,13 +13,15 @@ export default {
     },
     extend: {
       colors: {
-        pink: '#fe95c3',
-        darkpink: '#cb5287',
-        sage: '#6c8184',
-        lightsage:'#92a6a2',
-        darkgray: '#5e5e5e',
-        lightgray: '#c4c4c4',
-        beige: '#d7cdcc',
+        main1: '#ededed',
+        main2: '#cfcbc9',
+        main3: '#364659',
+        primary1: '#211712',
+        primary2: '#efebe9',
+        accent1: '#858970',        
+        accent1d: '#6a6d5a', 
+        accent2: '#c64a39',
+        accent2d: '#8a3428',       
       }
     },
   },

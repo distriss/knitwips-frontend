@@ -8,7 +8,7 @@ export default function Button({type, onClick, value}:ButtonProps) {
         <button
             type={type}
             onClick={onClick}
-            className="logo-font text-2xl py-2 px-4 mx-2 rounded-full bg-pink text-white text-shadow-sm hover:bg-darkpink align-center transition ease-in-out hover:scale-105 duration-300 whitespace-nowrap"
+            className="altfont text-2xl py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center transition ease-in-out hover:scale-110 duration-300 whitespace-nowrap"
             >
                 {value}
         </button>
