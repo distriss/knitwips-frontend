@@ -17,6 +17,12 @@
   src: url(./fonts/Poppins-Light.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Smythe';
+  src: url(./fonts/Smythe-Regular.ttf) format('truetype');
+}
+
+
 
 body {
   margin: 0;
@@ -39,6 +45,11 @@ body {
 
 .altfont {
   font-family: 'AbrilFatface', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
+.altfont-2 {
+  font-family: 'Smythe', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
 }
 

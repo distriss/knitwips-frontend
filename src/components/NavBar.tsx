@@ -1,4 +1,4 @@
-import logo from '../logo.svg';
+import logo from '../logo.png';
 import '../App.css';
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'universal-cookie';
@@ -30,7 +30,7 @@ export default function NavBar() {
                         className="inline mx-2" 
                     />
                     <span 
-                        className="text-4xl font-semibold text-primary1 logo-font text-shadow-sm">
+                        className="text-4xl font-semibold text-primary1 logo-font">
                         KnitWips
                     </span>
                 </a>
