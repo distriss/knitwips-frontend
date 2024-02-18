@@ -38,6 +38,13 @@ body {
 	background-size: auto, cover;
 } */
 
+.form-img {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.25), 50%, rgba(255, 219, 186, 0.35), 90%, rgba(146, 88, 34, 0.404), rgba(148, 92, 18, 0.473)), url("../public/assets/img/oksana-maselko-yarn-unsplash.jpg");
+  background-repeat: repeat, no-repeat;
+  background-size: auto, cover;
+  background-position-x: center;
+}
+
 
 .logo-font {
   font-family: 'Qumpellkano', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

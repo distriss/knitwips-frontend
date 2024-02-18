@@ -22,12 +22,11 @@ export default function SignUpForm() {
         <form
             onSubmit={handleSubmit(onSubmit)} 
             className="px-8">
-            <div className="mb-1">
+            <div className="mt-12">
                 <label                   
                     htmlFor="username"
-                    className="text-base text-pink font-bold text-shadow" 
-                    >
-                      Username:                   
+                    className="text-base text-primary1 font-bold" 
+                    >Username:                   
                 </label>
                 <input                    
                     type="username"
@@ -38,16 +37,15 @@ export default function SignUpForm() {
                           message: "Username is required",
                         }, 
                     })}
-                    className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                    className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
                 />
-                <p className="text-white text-sm mt-1 italic">{errors.username?.message}</p>
+                <p className="text-accent2 text-sm mt-1 italic">{errors.username?.message}</p>
             </div>
-            <div className="mb-1">
+            <div className="mt-4">
                 <label                   
                     htmlFor="email"
-                    className="text-base text-pink font-bold text-shadow" 
-                    >
-                      Email:
+                    className="text-base text-primary1 font-bold" 
+                    >Email:
                 </label>
                 <input                    
                     type="email"
@@ -62,15 +60,15 @@ export default function SignUpForm() {
                             message: "Invalid email format",
                           },                        
                     })}                    
-                    className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                    className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
                 />
-                <p className="text-white text-sm mt-1 italic">{errors.email?.message}</p>
+                <p className="text-accent2 text-sm mt-1 italic">{errors.email?.message}</p>
 
             </div>
-            <div className="mb-4">
+            <div className="mt-4">
                 <label                    
                     htmlFor="password"
-                    className="text-base text-pink font-bold text-shadow"
+                    className="text-base text-primary1 font-bold"
                     >
                       Password:
                 </label>
@@ -83,17 +81,16 @@ export default function SignUpForm() {
                         message: "A Password is required",
                       }, 
                     })}
-                    className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                    className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
                 />
-                <p className="text-white text-sm mt-1 italic">{errors.password?.message}</p>
+                <p className="text-accent2 text-sm mt-1 italic">{errors.password?.message}</p>
 
             </div>
-            <div className="flex items-center justify-center my-4">                
+            <div className="flex items-center justify-center my-10">                
                 <button 
                     type="submit"
-                    className="logo-font text-2xl py-2 px-8 rounded-full text-shadow bg-pink hover:bg-darkpink align-centertransition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 whitespace-nowrap"
-                    >
-                        Sign Up
+                    className="altfont text-2xl  py-2 px-10 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center transition ease-in-out hover:scale-110 duration-300 whitespace-nowrap"
+                    >Sign Up
                 </button>              
             </div>          
         </form>

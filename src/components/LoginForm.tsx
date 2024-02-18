@@ -29,12 +29,11 @@ export default function LoginForm() {
         <form 
             onSubmit={handleSubmit(onSubmit)}
             className="px-8">
-          <div className="mb-1">
+          <div className="mt-12">
             <label                
                 htmlFor="email"
-                className="text-base text-pink font-bold text-shadow" 
-                >
-                  Email:
+                className="text-base text-primary1 font-bold my-2" 
+                >Email:
             </label>
             <input                
                 type="email"
@@ -49,38 +48,38 @@ export default function LoginForm() {
                     message: "Invalid email format",
                   },    
                 })}
-                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
+                className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
             />
-            <p className="text-white text-sm mt-1 italic">{errors.email?.message}</p>
+            <p className="text-accent2 text-sm mt-1 italic">{errors.email?.message}</p>
           </div>
-          <div className="mb-2">
-            <label                 
-                htmlFor="password"
-                className="text-base text-pink font-bold text-shadow"
-                >
-                  Password:
-            </label>
-            <input                
-                type="password"
-                id="password"
-                {...register("password", { 
-                  required: {
-                    value: true,
-                    message: "A Password is required",
-                  }, 
-                })}
-                className="text-lg bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-pink"
-            />
-            <p className="text-white text-sm mt-1 italic">{errors.password?.message}</p>
-            <a className="align-baseline font-bold text-sm text-darkgray hover:text-pink" href="#">
-              Forgot Password?
-            </a>
+          <div className="mt-6">
+              <label                 
+                  htmlFor="password"
+                  className="text-base text-primary1 font-bold"
+                  >Password:
+              </label>
+              <input              
+                  type="password"
+                  id="password"
+                  {...register("password", { 
+                    required: {
+                      value: true,
+                      message: "A Password is required",
+                    }, 
+                  })}
+                  className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
+              />
+              <p className="text-accent2 text-sm mt-1 italic">{errors.password?.message}</p>
+              <a className="align-baseline font-bold text-sm italic text-primary1 hover:text-accent2" 
+                 href="#"
+                 >Forgot Password?
+              </a>
           </div>
-          <div className="flex items-center justify-center my-4">
+          <div className="flex items-center justify-center my-10">
             <button 
                 type="submit"
-                className="logo-font text-2xl py-2 px-8 rounded-full text-shadow bg-pink hover:bg-darkpink align-centertransition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 whitespace-nowrap">
-                    Log In
+                className="altfont text-2xl  py-2 px-10 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center transition ease-in-out hover:scale-110 duration-300 whitespace-nowrap"
+                >Log In
             </button>            
           </div>
         </form>

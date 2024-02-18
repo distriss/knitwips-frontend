@@ -17,14 +17,14 @@ export default function NavBar() {
 
     return (
         <nav 
-            className="w-full flex flex-wrap items-center justify-between relative bg-main1 py-2 shadow-lg  dark:bg-neutral-600 lg:py-4">
-            <div className="flex items-center justify-start px-4">
+            className="w-full flex flex-wrap items-center justify-around relative bg-main1 shadow-lg  dark:bg-neutral-600 py-2 lg:py-8">
+            <div className="flex items-center justify-start">
                 <a 
                     href="/"
                     className="flex items-center"                        
                     >
                     <img src={logo} 
-                        width="60" 
+                        width="80" 
                         alt="KnitWips Logo" 
                         loading="lazy" 
                         className="inline mx-2" 
@@ -35,41 +35,86 @@ export default function NavBar() {
                     </span>
                 </a>
             </div>               
-            <div 
-                className="flex items-center justify-end px-4">
-                <a 
-                    href="/"
-                    className="text-2xl px-4 mx-2 font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap">
-                        Home
-                </a>
-                <a 
-                    href="/guest"
-                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
-                        Guest
-                </a>
-                <a 
-                    href="/authtest"
-                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
-                        Auth
-                </a>
+            <ul className="flex items-center justify-end">
+                <li className="transition ease-in-out hover:scale-110 duration-300">              
+                    <a 
+                        href="/guest"
+                        className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 whitespace-nowrap" >
+                            Guest
+                    </a>
+                </li>
+                <li className="transition ease-in-out hover:scale-110 duration-300">
+                    <a 
+                        href="/authtest"
+                        className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                            Auth
+                    </a>
+                </li>
+                <li className="transition ease-in-out hover:scale-110 duration-300">
+                    <a 
+                        href="/about"
+                        className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                            About
+                    </a>
+                </li>
                 {
                     isLoggedIn ? (
-                        <Link 
-                        to="/login"
-                        className="altfont text-2xl py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center transition ease-in-out hover:scale-110 duration-300 whitespace-nowrap"
-                        >
-                        Log In
-                        </Link>
-                        
+                    <li>
+                        <ul className="flex items-center justify-between">
+                        <li className="transition ease-in-out hover:scale-110 duration-300">
+                            <Link 
+                                to="/signup"
+                                className="altfont text-2xl min-w-36 py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center whitespace-nowrap"
+                                >
+                                    Sign Up
+                            </Link>
+                            </li>
+                            <li className="transition ease-in-out hover:scale-110 duration-300">
+                            <Link 
+                                to="/login"
+                                className="altfont text-2xl min-w-36 py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center whitespace-nowrap"
+                                >
+                                Log In
+                            </Link>
+                            </li>
+                        </ul>
+                    </li>
                     ) : (
-                        <Button 
-                            type="button"
-                            onClick={handleLogOut}
-                            value="Log Out"/>
+                    <li>
+                        <ul className="flex items-center justify-between">
+                            <li>
+                                <a 
+                                    href="/feed"
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                                        Explore
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    href="/projects"
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                                        Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    href="/profile"
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                                        Profile
+                                </a>                            
+                            </li>
+                            <li>
+                                <Button 
+                                    type="button"
+                                    onClick={handleLogOut}
+                                    value="Log Out"/>
+                            </li>
+                        </ul>
+                    </li>
                     )
                 }
                  
-            </div> 
+            </ul> 
         </nav>
     )
 }
