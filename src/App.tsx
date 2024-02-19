@@ -9,6 +9,8 @@ import Guest from './components/Guest';
 import Auth from './components/AuthComponent';
 import AuthRoute from './components/AuthRoute';
 
+
+
 function App() {
 
   return (
@@ -20,7 +22,7 @@ function App() {
             <Route path="/authtest" element={<Auth />} />
             <Route path="/logout" element={<LogOut />} />
             <Route path="/feed" element={<Feed />} />
-            <Route path="/profile" element={<Profile />} />        
+            <Route path="/profile/:username" element={<Profile />} />        
           </Route>
 
           <Route path="/" element={<HomePage />} />

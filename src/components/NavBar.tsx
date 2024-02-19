@@ -68,8 +68,8 @@ export default function NavBar() {
                                 >
                                     Sign Up
                             </Link>
-                            </li>
-                            <li className="transition ease-in-out hover:scale-110 duration-300">
+                        </li>
+                        <li className="transition ease-in-out hover:scale-110 duration-300">
                             <Link 
                                 to="/login"
                                 className="altfont text-2xl min-w-36 py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 align-center whitespace-nowrap"
@@ -82,24 +82,24 @@ export default function NavBar() {
                     ) : (
                     <li>
                         <ul className="flex items-center justify-between">
-                            <li>
+                            <li className="transition ease-in-out hover:scale-110 duration-300">
                                 <a 
                                     href="/feed"
-                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
-                                        Explore
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 whitespace-nowrap" >
+                                        Community
                                 </a>
                             </li>
-                            <li>
+                            <li className="transition ease-in-out hover:scale-110 duration-300">
                                 <a 
                                     href="/projects"
-                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 whitespace-nowrap" >
                                         Projects
                                 </a>
                             </li>
-                            <li>
+                            <li className="transition ease-in-out hover:scale-110 duration-300">
                                 <a 
-                                    href="/profile"
-                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 transition ease-in-out hover:scale-125 duration-300 whitespace-nowrap" >
+                                    href="/profile/:username"
+                                    className="text-2xl px-4 mx-2  font-semibold text-primary1 hover:text-accent2 whitespace-nowrap" >
                                         Profile
                                 </a>                            
                             </li>

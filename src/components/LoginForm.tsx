@@ -17,8 +17,9 @@ export default function LoginForm() {
       console.log('Login successful', response.data);
       cookies.set("TOKEN", response.data.token, {
         path: "/",
-      })
-      window.location.href = "/authtest";
+      })      
+      window.location.href = "/feed";
+      
      } catch (error) {
       console.error('Error submitting form:', error);
      }

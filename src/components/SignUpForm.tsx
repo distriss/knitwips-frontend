@@ -2,6 +2,10 @@ import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import SignUpData from '../interfaces/SignUpData'
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+
 
 export default function SignUpForm() {
   const form = useForm<SignUpData>();
@@ -12,6 +16,18 @@ export default function SignUpForm() {
     try {
       await axios.post('http://localhost:5000/signup', data)
       console.log('Form submitted.', data)
+      
+      const login = await axios.post('http://localhost:5000/login', {
+        email: data.email,
+        password: data.password,
+      });
+      console.log('Login successful', login.data)
+
+      cookies.set("TOKEN", login.data.token, {
+        path: "/"
+      })
+      window.location.href = "/feed";
+      
     } catch (error) {
       console.error('Error submitting form:', error);
     }    
