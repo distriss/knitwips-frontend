@@ -1,36 +1,55 @@
 import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import { useNavigate } from 'react-router-dom'
+import { useState, useContext } from 'react';
 import SignUpData from '../interfaces/SignUpData'
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import Loading from './Loading';
+import ErrorMessage from './ErrorMessage';
+import { AuthContext } from '../context/AuthProvider';
 
 const cookies = new Cookies();
-
 
 export default function SignUpForm() {
   const form = useForm<SignUpData>();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('')
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
   
-  const onSubmit = async (data: SignUpData) => {    
-    try {
-      await axios.post('http://localhost:5000/signup', data)
-      console.log('Form submitted.', data)
-      
-      const login = await axios.post('http://localhost:5000/login', {
-        email: data.email,
-        password: data.password,
-      });
-      console.log('Login successful', login.data)
-
-      cookies.set("TOKEN", login.data.token, {
-        path: "/"
-      })
-      window.location.href = "/feed";
-      
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }    
+  const onSubmit = async (data: SignUpData) => {
+    if (data.password !== data.confirmPassword) {
+      setErrorMessage('Passwords do Not match')
+    } else {
+      setErrorMessage('')
+      try {
+        setLoading(true)
+        const response = await axios.post('http://localhost:5000/users/', data)
+        console.log('Form submitted')
+        console.log('Sign Up successful', response.data);
+        cookies.set("TOKEN", response.data.token, {
+          path: "/",
+        })        
+        localStorage.setItem('userInfo', JSON.stringify(response.data))
+        authContext.setAuthenticated(true);
+        authContext.setUser(response.data)
+        setErrorMessage('');
+        navigate("/feed")
+        setLoading(false);
+      } catch (error) {
+          if (axios.isAxiosError(error) && error.response) {
+            setErrorMessage(error.response.data.message);
+          } else {
+            setErrorMessage('An unexpected error occurred.')
+          }
+        console.error('Error submitting form:', error);
+        setLoading(false);
+      }
+    }
+        
   }
 
   return (
@@ -38,6 +57,8 @@ export default function SignUpForm() {
         <form
             onSubmit={handleSubmit(onSubmit)} 
             className="px-8">
+              {errors && <ErrorMessage error={errorMessage} /> } 
+              { loading && <Loading />}  
             <div className="mt-12">
                 <label                   
                     htmlFor="username"
@@ -91,6 +112,27 @@ export default function SignUpForm() {
                 <input                    
                     type="password"
                     id="password"
+                    {...register("confirmPassword", { 
+                      required: {
+                        value: true,
+                        message: "Confirm Password is required",
+                      }, 
+                    })}
+                    className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
+                />
+                <p className="text-accent2 text-sm mt-1 italic">{errors.password?.message}</p>
+
+            </div>
+            <div className="mt-4">
+                <label                    
+                    htmlFor="confirmPassword"
+                    className="text-base text-primary1 font-bold"
+                    >
+                      Confirm Password:
+                </label>
+                <input                    
+                    type="password"
+                    id="confirmPassword"
                     {...register("password", { 
                       required: {
                         value: true,
@@ -100,7 +142,6 @@ export default function SignUpForm() {
                     className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
                 />
                 <p className="text-accent2 text-sm mt-1 italic">{errors.password?.message}</p>
-
             </div>
             <div className="flex items-center justify-center my-10">                
                 <button 
