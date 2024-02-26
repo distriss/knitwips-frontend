@@ -33,9 +33,9 @@ export default function SignUpForm() {
         cookies.set("TOKEN", response.data.token, {
           path: "/",
         })        
-        localStorage.setItem('userInfo', JSON.stringify(response.data))
+        localStorage.setItem('userInfo', JSON.stringify(response.data.user))
         authContext.setAuthenticated(true);
-        authContext.setUser(response.data)
+        authContext.setUser(response.data.user)
         setErrorMessage('');
         navigate("/feed")
         setLoading(false);
