@@ -13,7 +13,7 @@ export default function LogOut() {
         localStorage.removeItem('userInfo');
         cookies.remove('TOKEN', { path: "/" });
         authContext.setAuthenticated(false);
-        authContext.setUser(null);
+        authContext.setAuthUser(null);
         redirect("/")
     }
 

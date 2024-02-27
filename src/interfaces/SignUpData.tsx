@@ -5,3 +5,4 @@ export default interface SignupData {
     confirmPassword: string;  
 }
 
+export type LoginData = Pick<SignupData, 'email' | 'password' >;

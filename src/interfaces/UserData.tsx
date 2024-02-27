@@ -6,3 +6,8 @@ export default interface UserData {
     followers: string[];
     isAdmin: boolean;
 }
+
+export interface UserDataProps {
+    user: UserData;
+    onUpdate: (updateUserData: Partial<UserData>) => void;
+}

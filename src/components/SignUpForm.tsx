@@ -35,7 +35,7 @@ export default function SignUpForm() {
         })        
         localStorage.setItem('userInfo', JSON.stringify(response.data.user))
         authContext.setAuthenticated(true);
-        authContext.setUser(response.data.user)
+        authContext.setAuthUser(response.data.user)
         setErrorMessage('');
         navigate("/feed")
         setLoading(false);

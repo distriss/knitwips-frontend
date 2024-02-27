@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
-import LoginData from '../interfaces/LoginData';
+import { LoginData } from '../interfaces/SignUpData';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import Loading from './Loading';
@@ -31,7 +31,7 @@ export default function LoginForm() {
       })      
       localStorage.setItem('userInfo', JSON.stringify(response.data.user))
       authContext.setAuthenticated(true);
-      authContext.setUser(response.data.user);
+      authContext.setAuthUser(response.data.user);
       setErrorMessage('');
       navigate("/feed")
       setLoading(false);

@@ -8,8 +8,8 @@ const cookies = new Cookies();
 const defaultAuthValues: AuthContextProps = {
     authenticated: false,
     setAuthenticated: () => {},
-    user: null,
-    setUser: () => {},
+    authUser: null,
+    setAuthUser: () => {},
 };
 
 export const AuthContext = createContext<AuthContextProps>(defaultAuthValues);
@@ -20,7 +20,7 @@ interface AuthProviderProps {
 
 export default function AuthProvider({ children }: AuthProviderProps) {
     const [authenticated, setAuthenticated] = useState(false);
-    const [user, setUser] = useState<UserData | null>(null);
+    const [authUser, setAuthUser] = useState<UserData | null>(null);
 
     useEffect(() => {
         const storedToken = cookies.get('TOKEN')
@@ -30,7 +30,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
         }
         if (storedUser) {
             const user: UserData = JSON.parse(storedUser);
-            setUser(user);
+            setAuthUser(user);
             setAuthenticated(true);        
         }
     }, []);
@@ -40,8 +40,8 @@ export default function AuthProvider({ children }: AuthProviderProps) {
             value={{
                 authenticated,
                 setAuthenticated,
-                user,
-                setUser,
+                authUser,
+                setAuthUser,
             }}
         >
             {children}
