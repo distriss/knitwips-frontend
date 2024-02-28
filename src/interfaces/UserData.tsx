@@ -8,6 +8,5 @@ export default interface UserData {
 }
 
 export interface UserDataProps {
-    user: UserData;
-    onUpdate: (updateUserData: Partial<UserData>) => void;
+    user: UserData;    
 }

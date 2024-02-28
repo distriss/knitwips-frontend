@@ -32,7 +32,7 @@ export default function NavBar() {
                         <li><Link to="/feed" className="text-2xl px-4 mx-2 font-semibold text-primary1 hover:text-accent2">Community</Link></li>
                         <li><Link to="/projects" className="text-2xl px-4 mx-2 font-semibold text-primary1 hover:text-accent2">Projects</Link></li>
                         {authUser && <li><Link to={`/profile/${authUser.username}`} className="text-2xl px-4 mx-2 font-semibold text-primary1 hover:text-accent2">Profile</Link></li>}
-                        <li><Link to="/newWip" className="altfont text-2xl min-w-36 py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2">New WIP</Link></li>
+                        <li><Link to="/newWip" className="altfont text-2xl min-w-36 py-2 px-8 mx-2 rounded-full bg-accent1 text-white text-shadow-sm hover:bg-accent2 whitespace-nowrap">New WIP</Link></li>
                         <li><LogOut /></li>
                     </>
                 )}

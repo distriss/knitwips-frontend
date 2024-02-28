@@ -15,7 +15,6 @@ export default function Profile() {
           const fetchUserData = async () => {
                try {
                     const response = await axios.get(`http://localhost:5000/users/profile/${username}`)
-                    console.log(response.data.user)
                     setProfileData(response.data.user)
                } catch (error) {
                     console.error('Error fetching user data:', error);
@@ -23,20 +22,6 @@ export default function Profile() {
           }
           fetchUserData();
         }, [username]);
-
-
-        const handleUpdate = (updateUserData: Partial<UserData>) => {
-          setProfileData((data) => {
-               if (data !== null) {
-                   return {
-                       ...data,
-                       ...updateUserData
-                   };
-               } else {
-                   return updateUserData as UserData; 
-               }
-           });
-      };
       
     return (
        <>
@@ -48,7 +33,6 @@ export default function Profile() {
             {profileData && (
                <UserCard 
                     user={profileData}
-                    onUpdate={handleUpdate}
                      />
                )}
             </div>

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../context/AuthProvider';
 import axios from 'axios';
@@ -8,32 +8,58 @@ import ErrorMessage from './ErrorMessage';
 
 
 
-export default function UserCard({ user, onUpdate }: UserDataProps ) {
+export default function UserCard({ user }: UserDataProps ) {
     const { username } = useParams();
     const { authUser, setAuthUser } = useContext(AuthContext);    
     const [errorMessage, setErrorMessage] = useState('')
-    const [ isFollowing, setIsFollowing] = useState(authUser?.following?.includes(user._id) || false);
+    const [isFollowing, setIsFollowing] = useState(false);
+
+    useEffect(() => {        
+        const authUser = localStorage.getItem('userInfo');
+        if (authUser) {
+            const userInfo:  { following: Array<{ _id: string }> } = JSON.parse(authUser);
+            const userIds = userInfo.following.map((user) => user._id || user);
+            const following = userIds.includes(user._id);
+            setIsFollowing(following);
+        }
+    }, [user._id])
 
     
-    const handleFollow = async () => {
-        console.log(user, authUser)
+    const handleFollow = async () => {        
         const data = {
             authUserId: authUser?._id,
             userId: user._id
         }
         if (isFollowing) {
-
-            console.log('Unfollow')
-            setIsFollowing(false);
-
+            try {
+                setErrorMessage('')
+                const response = await axios.put(`http://localhost:5000/users/${username}/unfollow`, data )
+                console.log('UnFollow')
+                setAuthUser(response.data.authUser);
+                localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
+                setIsFollowing(false)                
+                
+                console.log(response.data.user)
+                console.log(user)
+                
+            } catch (error) {
+                if (axios.isAxiosError(error) && error.response) {
+                    setErrorMessage(error.response.data.message);
+                  } else {
+                    setErrorMessage('An unexpected error occurred.')
+                  }
+                console.error('Error unfollowing user:', error)
+            } 
         } else {
             try {
                 setErrorMessage('')
                 const response = await axios.put(`http://localhost:5000/users/${username}/follow`, data )
                 console.log('Follow')
-                onUpdate(response.data.targetUser)
-                setAuthUser(response.data.authUser)
+                setAuthUser(response.data.authUser);
+                localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
                 setIsFollowing(true)
+                console.log(user)
+                console.log(response.data.user)
                 
             } catch (error) {
                 if (axios.isAxiosError(error) && error.response) {
@@ -42,8 +68,7 @@ export default function UserCard({ user, onUpdate }: UserDataProps ) {
                     setErrorMessage('An unexpected error occurred.')
                   }
                 console.error('Error following user:', error)
-            }
-            
+            }            
         }
     }
 
@@ -51,12 +76,13 @@ export default function UserCard({ user, onUpdate }: UserDataProps ) {
         <section className="bg-white p-4 rounded-lg shadow">
             <h2 className="text-2xl">Profile of {user.username}</h2>
             <p>about paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque consectetur.</p>
-            {<ErrorMessage error={errorMessage} /> }  
+            {<ErrorMessage error={errorMessage} /> } 
+            { authUser?._id !== user._id && (
             <Button 
                 type="button"
                 onClick={handleFollow}
                 value={isFollowing ? "Unfollow" : "Follow" } />
-                    
+            )}  
         </section>
     )
 }
