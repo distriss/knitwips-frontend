@@ -30,27 +30,7 @@ export default function UserCard({ user }: UserDataProps ) {
             authUserId: authUser?._id,
             userId: user._id
         }
-        if (isFollowing) {
-            try {
-                setErrorMessage('')
-                const response = await axios.put(`http://localhost:5000/users/${username}/unfollow`, data )
-                console.log('UnFollow')
-                setAuthUser(response.data.authUser);
-                localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
-                setIsFollowing(false)                
-                
-                console.log(response.data.user)
-                console.log(user)
-                
-            } catch (error) {
-                if (axios.isAxiosError(error) && error.response) {
-                    setErrorMessage(error.response.data.message);
-                  } else {
-                    setErrorMessage('An unexpected error occurred.')
-                  }
-                console.error('Error unfollowing user:', error)
-            } 
-        } else {
+        if (!isFollowing) {
             try {
                 setErrorMessage('')
                 const response = await axios.put(`http://localhost:5000/users/${username}/follow`, data )
@@ -71,6 +51,35 @@ export default function UserCard({ user }: UserDataProps ) {
             }            
         }
     }
+    
+
+    const handleUnfollow = async () => {
+        const data = {
+            authUserId: authUser?._id,
+            userId: user._id
+        }
+        if (isFollowing) {
+            try {
+                setErrorMessage('')
+                const response = await axios.put(`http://localhost:5000/users/${username}/unfollow`, data )
+                console.log('UnFollow')
+                setAuthUser(response.data.authUser);
+                localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
+                setIsFollowing(false)                
+                
+                console.log(response.data.user)
+                console.log(user)
+                
+            } catch (error) {
+                if (axios.isAxiosError(error) && error.response) {
+                    setErrorMessage(error.response.data.message);
+                  } else {
+                    setErrorMessage('An unexpected error occurred.')
+                  }
+                console.error('Error unfollowing user:', error)
+            }
+        }
+    }
 
     return (
         <section className="bg-white p-4 rounded-lg shadow">
@@ -80,7 +89,7 @@ export default function UserCard({ user }: UserDataProps ) {
             { authUser?._id !== user._id && (
             <Button 
                 type="button"
-                onClick={handleFollow}
+                onClick={isFollowing ? handleUnfollow : handleFollow}
                 value={isFollowing ? "Unfollow" : "Follow" } />
             )}  
         </section>
