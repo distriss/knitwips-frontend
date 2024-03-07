@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import LogOut from './components/LogOut';
 import Feed from './pages/Feed';
 import Profile from './pages/Profile';
+import NewPattern from './pages/NewPattern';
 import Guest from './components/Guest';
 import Auth from './components/AuthComponent';
 import AuthRoute from './components/AuthRoute';
@@ -22,7 +23,8 @@ function App() {
             <Route path="/authtest" element={<Auth />} />
             <Route path="/logout" element={<LogOut />} />
             <Route path="/feed" element={<Feed />} />
-            <Route path="/profile/:username" element={<Profile />} />        
+            <Route path="/profile/:username" element={<Profile />} />
+            <Route path="/newPattern" element={<NewPattern />}  />      
           </Route>
 
           <Route path="/" element={<Home />} />

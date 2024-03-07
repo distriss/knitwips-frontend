@@ -82,9 +82,9 @@ export default function UserCard({ user }: UserDataProps ) {
     }
 
     return (
-        <section className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-2xl">Profile of {user.username}</h2>
-            <p>about paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque consectetur.</p>
+        <section className="bg-white p-4 m-2 rounded-lg shadow">
+            <h2 className="text-2xl m-2">Profile of {user.username}</h2>
+            <p className="mx-4 my-6">about paragraph Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cumque consectetur.</p>
             {<ErrorMessage error={errorMessage} /> } 
             { authUser?._id !== user._id && (
             <Button 
