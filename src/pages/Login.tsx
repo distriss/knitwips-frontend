@@ -16,7 +16,7 @@ export default function LogIn() {
                         <h1 className="logo-font text-primary2 mt-10 text-8xl whitespace-nowrap">KnitWips</h1>
                         <p  className="altfont-2 text-4xl text-primary2 mt-8">CREATE, TRACK AND SHARE</p>
                         <img src={logo}
-                           className="logo mt-6" 
+                           className="drop-shadow mt-6" 
                            width="250" 
                            alt="KnitWips Logo" 
                            loading="lazy" 

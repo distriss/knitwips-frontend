@@ -1,14 +1,14 @@
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
 // import { useNavigate } from 'react-router-dom'
-import PatternData from '../interfaces/PatternData';
+import newPatternData from '../interfaces/PatternData';
 import axios from 'axios';
 import Loading from './Loading';
 import ErrorMessage from './ErrorMessage';
 import { AuthContext } from '../context/AuthProvider';
 
 export default function LoginForm() {
-  const form = useForm<PatternData>();
+  const form = useForm<newPatternData>();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function LoginForm() {
   // const navigate = useNavigate();
 
 
-  const onSubmit = async (data: PatternData) => {
+  const onSubmit = async (data: newPatternData) => {
     const user = authContext.authUser;    
 
     if (!user) {

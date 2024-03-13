@@ -14,7 +14,7 @@ export default function NavBar() {
             className="w-full flex flex-wrap items-center justify-around relative bg-main1 shadow-lg  dark:bg-neutral-600 py-2 lg:py-8">
             <div className="flex items-center justify-start">
                 <Link to="/" className="flex items-center">
-                    <img src={logo} width="80" alt="KnitWips Logo" loading="lazy" className="inline mx-2 logo" />
+                    <img src={logo} width="80" alt="KnitWips Logo" loading="lazy" className="inline mx-2 drop-shadow " />
                     <span className="text-4xl font-semibold text-primary1 logo-font">KnitWips</span>
                 </Link>
             </div>               
