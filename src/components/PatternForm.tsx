@@ -84,17 +84,23 @@ export default function LoginForm() {
                   className="text-base text-primary1 font-bold"
                   >Description:
               </label>
-              <input              
-                  type="text"
+              <textarea
                   id="description"
                   {...register("description", { 
                     required: {
                       value: true,
                       message: "A description is required",
-                    }, 
+                    },
+                    maxLength: {
+                        value: 150,
+                        message: "Description should not exceed 150 characters",
+                    },
                   })}
+                  rows={4}
                   className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
-              />
+                  placeholder="Write a description..."
+              >                
+              </textarea>
               <p className="text-accent2 text-sm mt-1 italic">{errors.description?.message}</p>
           </div>
           <div className="mt-6">

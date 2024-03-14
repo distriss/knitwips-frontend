@@ -5,6 +5,7 @@ export default interface PatternData {
     needleSize: string;
     yarnWeight: string;
     likes: number;
+    image: string;
     private: boolean;
     createdAt: string;
     updatedAt: string;

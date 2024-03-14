@@ -48,13 +48,12 @@ export default function Feed() {
                 </button>
 
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {patterns.map(pattern => 
                     <PatternCard key={pattern._id} pattern={pattern} />
                 )}
             </div>
-            <div>
-                
+            <div>                
                 <button onClick={() => setPage(prevPage => prevPage + 1)}>Load More</button>            
             </div>
 
