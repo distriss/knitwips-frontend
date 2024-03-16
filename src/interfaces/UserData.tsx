@@ -4,6 +4,8 @@ export default interface UserData {
     email: string;
     following: string[];
     followers: string[];
+    likedPatterns: string[];
+    savedPatterns: string[];
     isAdmin: boolean;
 }
 
