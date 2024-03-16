@@ -2,6 +2,7 @@
 React Client side of a Web Application to help knitters to create, track and share patterns. You can create an account and profile, create patterns, keep note on materials used, count each section of patterns by creating counters, save progress, like and comment on other users patterns.
 
 ![KnitWips](https://github.com/distriss/knitwips-frontend/blob/main/src/assets/knitwips-screen1.png)
+![KnitWips](https://github.com/distriss/knitwips-frontend/blob/main/src/assets/knitwips-screen2-feed.jpg)
 
 **Link to project:** http:/
 
