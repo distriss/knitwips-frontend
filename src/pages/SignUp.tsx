@@ -26,7 +26,7 @@ export default function SignUp() {
                 </div>
                 <div className="border-r border-b items-center border-l border-accent1 lg:border-l-0 lg:border-t lg:border-accent1 bg-main1 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col leading-normal">
                   <h1 className="altfont text-accent2 text-5xl my-8">
-                      Join 100s of knitters on their creation journey!
+                      Join 1000s of knitters on their creation journey!
                   </h1>
                   <SignUpForm />
                 </div>

@@ -14,7 +14,7 @@ export default function PatternCard({ pattern }: PatternDataProps) {
     
     return (
         <>
-         <div className="relative max-w-sm bg-main1 rounded-lg shadow-md">
+         <div className="relative max-w-sm bg-main1 rounded-lg m-1 shadow-md transition ease-in-out hover:scale-105 duration-200">
             {dropdown && (
                 <div className="absolute right-0 top-10 mt-2 mr-2">
                     <div className="w-44 bg-white rounded-lg shadow divide-y divide-gray-100">
