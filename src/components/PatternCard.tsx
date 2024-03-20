@@ -2,15 +2,32 @@ import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
 import { PatternDataProps } from '../interfaces/PatternData';
 import LikeButton from '../components/LikeButton';
-import Button from '../components/Button'
+// import Button from '../components/Button'
 
 
 export default function PatternCard({ pattern }: PatternDataProps) {
-    const { authUser, setAuthUser } = useContext(AuthContext); 
     const [dropdown, setDropdown] = useState(false);
+    const [likesCount, setLikesCount] = useState(pattern.likes);
+    const [isLiked, setIsLiked] = useState(false);
+    const { authUser } = useContext(AuthContext);
+    
+    useEffect(() => {
+        if (authUser && authUser.likedPatterns) {
+            const isPatternLiked = authUser.likedPatterns.includes(pattern._id);
+            setIsLiked(isPatternLiked);
+        }
+    }, [pattern._id, authUser]);
+
     const toggleDropdown = () => {
       setDropdown(prev => !prev);
     };
+
+    const onLike = async (newLikesCount: number, likeState: boolean) => {
+        setLikesCount(newLikesCount);
+        setIsLiked(likeState);
+
+    }
+   
     
     return (
         <>
@@ -47,23 +64,22 @@ export default function PatternCard({ pattern }: PatternDataProps) {
             <a href="#">
                 <img className="rounded-t-lg" src={pattern.image} alt="Pattern Image" />
             </a>
-            <div className="p-5">
-                <div className="flex items-center justify-between mb-4 text-accent2">                
-                    <span className="ml-2 text-primary1">{pattern.likes} Likes</span>
-                    <LikeButton 
-                        patternId={pattern._id}
-
-                    />
-                </div>
+            <div className="p-5">                
+                <LikeButton 
+                    id={pattern._id}
+                    likesCount={likesCount}
+                    authUserLiked={isLiked}
+                    onLike={onLike}
+                />
                 <div className="flex flex-col items-center justify-between mb-4">  
                     <h5 className="text-2xl font-bold text-primary1">{pattern.title}</h5>
                     <span className="mb-2 text-sm">by {pattern.user.username}</span>
                     <p className="mb-3 font-normal text-primary3">{pattern.description}</p>
                 </div>                             
-                <Button 
+                {/* <Button 
                     type="button"
                     value="View"
-                />
+                /> */}
             </div>
         </div>       
         </>

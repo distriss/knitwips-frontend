@@ -32,14 +32,14 @@ export default function UserCard({ user }: UserDataProps ) {
         }
         if (!isFollowing) {
             try {
-                setErrorMessage('')
-                const response = await axios.put(`http://localhost:5000/users/${username}/follow`, data )
-                console.log('Follow')
+                setErrorMessage('');
+                const response = await axios.put(`http://localhost:5000/users/${username}/follow`, data );
+                console.log('Follow');
                 setAuthUser(response.data.authUser);
                 localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
-                setIsFollowing(true)
-                console.log(user)
-                console.log(response.data.user)
+                setIsFollowing(true);
+                console.log(user);
+                console.log(response.data.user);
                 
             } catch (error) {
                 if (axios.isAxiosError(error) && error.response) {
