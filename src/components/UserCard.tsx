@@ -49,19 +49,10 @@ export default function UserCard({ user }: UserDataProps ) {
                   }
                 console.error('Error following user:', error)
             }            
-        }
-    }
-    
-
-    const handleUnfollow = async () => {
-        const data = {
-            authUserId: authUser?._id,
-            userId: user._id
-        }
-        if (isFollowing) {
+        } else if (isFollowing) {
             try {
                 setErrorMessage('')
-                const response = await axios.put(`http://localhost:5000/users/${username}/unfollow`, data )
+                const response = await axios.put(`http://localhost:5000/users/${username}/follow`, data )
                 console.log('UnFollow')
                 setAuthUser(response.data.authUser);
                 localStorage.setItem('userInfo', JSON.stringify(response.data.authUser));
@@ -79,7 +70,7 @@ export default function UserCard({ user }: UserDataProps ) {
                 console.error('Error unfollowing user:', error)
             }
         }
-    }
+    }    
 
     return (
         <section className="bg-white p-4 m-2 rounded-lg shadow">
@@ -89,7 +80,7 @@ export default function UserCard({ user }: UserDataProps ) {
             { authUser?._id !== user._id && (
             <Button 
                 type="button"
-                onClick={isFollowing ? handleUnfollow : handleFollow}
+                onClick={handleFollow}
                 value={isFollowing ? "Unfollow" : "Follow" } />
             )}  
         </section>

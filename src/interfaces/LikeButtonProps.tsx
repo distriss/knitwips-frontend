@@ -3,5 +3,5 @@ export default interface LikeButtonProps {
     likesCount: number;
     authUserLiked: boolean;
     
-    onLike: (newLikesCount: number, likeState: boolean) => void;
+    onLike: (newLikesCount: number, likeStatus: boolean) => void;
 }
