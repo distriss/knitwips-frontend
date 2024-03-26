@@ -10,7 +10,14 @@ export default function HomePage() {
             <NavBar />
             <Banner />                               
           </header>
-          <section className="flex flex-col justify-center items-center bg-main1 py-6 ">
+          <div className="flex flex-col justify-center items-center py-8 bg-white drop-shadow-lg">
+          <span className="text-primary1 text-3xl my-4">
+                  Join 1000s of knitters on their creation journey!
+              </span>
+              <h2 className="altfont text-7xl text-accent1d mb-8">Discover Trending Projects:</h2>
+              
+            </div>
+          <section id="featured" className="flex flex-col justify-center items-center bg-main1 py-32 ">            
               <FeaturedPatterns />
           </section>
         </>

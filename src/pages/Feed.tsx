@@ -48,17 +48,17 @@ export default function Feed() {
                 <button 
                     type="button"
                     onClick={() => { setFilter('latest'); setPage(1); setPatterns([]); }}
-                    className={`text-accent1 text-xl border-accent1 ${filter === 'latest' ? 'bg-accent1 text-white font-bold' : 'bg-white'} hover:bg-white hover:text-accent2 hover:border-accent2 border focus:border-accent1 focus:ring-4 focus:outline-none focus:ring-accent1 focus:scale-110 rounded-full px-5 py-2.5 text-center me-3 m-3 transition ease-in-out hover:scale-110 duration-300`}>
+                    className={`text-accent1 text-xl border-accent1 ${filter === 'latest' ? 'bg-accent1 text-white font-bold' : 'bg-white'} hover:bg-white hover:text-accent2 hover:border-accent2 border focus:border-accent1 focus:ring-2 focus:outline-none focus:ring-accent1 focus:scale-110 min-w-32 py-2 px-2 rounded-full text-center me-3 m-3 transition ease-in-out hover:scale-110 duration-300`}>
                         Latest
                 </button>
                 <button 
                     type="button"
                     onClick={() => { setFilter('likes'); setPage(1); setPatterns([]); }}
-                    className={`text-accent1 text-xl border-accent1 ${filter === 'likes' ? 'bg-accent1 border-accent1 text-white font-bold' : 'bg-white'} hover:bg-white hover:text-accent2 hover:border-accent2 border focus:border-accent1 focus:ring-4 focus:outline-none focus:ring-accent1 focus:scale-110 rounded-full px-5 py-2.5 text-center me-3 m-3 transition ease-in-out hover:scale-110 duration-300`}>
+                    className={`text-accent1 text-xl border-accent1 ${filter === 'likes' ? 'bg-accent1 border-accent1 text-white font-bold' : 'bg-white'} hover:bg-white hover:text-accent2 hover:border-accent2 border focus:border-accent1 focus:ring-2 focus:outline-none focus:ring-accent1 focus:scale-110 min-w-32 py-2 px-2  rounded-full text-center me-3 m-3 transition ease-in-out hover:scale-110 duration-300`}>
                         Most Liked
                 </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">                
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">                
                 {patterns.map(pattern => 
                     <PatternCard key={pattern._id} pattern={pattern} />
                 )}

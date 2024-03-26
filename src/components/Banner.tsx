@@ -8,7 +8,7 @@ export default function Banner() {
         <section id="banner" className="flex justify-center items-center bg-main2  px-40 py-10">
             <div className="flex flex-col items-center">
                 <img src={logo}
-                     className="logo mt-6" 
+                     className="drop-shadow logo mt-6" 
                      width="250" 
                      alt="KnitWips Logo" 
                      loading="lazy" 

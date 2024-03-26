@@ -42,7 +42,7 @@ export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
         <>        
             <div className="relative max-w-sm bg-main1 rounded-lg m-1 shadow-md transition ease-in-out hover:scale-105 duration-200">            
                 <Link to={authUser ? `/wips/${pattern._id}` : `/login`}>
-                    <img className="rounded-t-lg" src={pattern.image} alt="Pattern Image" />
+                    <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
                 <div className="p-5">
                     <div className="flex flex-row justify-between">            

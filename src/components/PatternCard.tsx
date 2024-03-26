@@ -78,7 +78,7 @@ export default function PatternCard({ pattern }: PatternDataProps) {
                     </svg>
                 </button>
                 <Link to={`/wips/${pattern._id}`}>
-                    <img className="rounded-t-lg" src={pattern.image} alt="Pattern Image" />
+                    <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
                 <div className="p-5">
                     <div className="flex flex-row justify-between">              
