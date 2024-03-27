@@ -77,7 +77,7 @@ export default function PatternCard({ pattern }: PatternDataProps) {
                         <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
                     </svg>
                 </button>
-                <Link to={`/wips/${pattern._id}`}>
+                <Link to={`/wips/${pattern.user.username}/patterns/${pattern._id}`}>
                     <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
                 <div className="p-5">
@@ -100,7 +100,15 @@ export default function PatternCard({ pattern }: PatternDataProps) {
                         <Link to={`/profile/${pattern.user.username}`} className="mb-2 text-sm font-semibold text-accent1d hover:text-accent2"> {pattern.user.username}</Link>
                         </span>
                         <p className="mb-3 font-normal text-primary3">{pattern.description}</p>
-                    </div>                
+                    </div>
+                    <div className="flex justify-center items-center">
+                        <span className="bg-red-100 text-accent1 font-bold text-md mt-2 mx-6 px-4 rounded-full">
+                            {pattern.needleSize}
+                        </span>
+                        <span className="bg-red-100 text-accent1 font-bold text-md mt-2 mx-6 px-4 rounded-full">
+                            {pattern.yarnWeight}
+                        </span>
+                    </div>                 
                 </div>
             </div>             
         </>

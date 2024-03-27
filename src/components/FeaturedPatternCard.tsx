@@ -41,7 +41,7 @@ export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
     return (
         <>        
             <div className="relative max-w-sm bg-main1 rounded-lg m-1 shadow-md transition ease-in-out hover:scale-105 duration-200">            
-                <Link to={authUser ? `/wips/${pattern._id}` : `/login`}>
+                <Link to={authUser ? `/wips/${pattern.user.username}/patterns/${pattern._id}` : `/login`}>
                     <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
                 <div className="p-5">
@@ -58,13 +58,22 @@ export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
                             onSave={onSave}
                         />                       
                     </div>
-                    <div className="flex flex-col items-start text-left justify-between mb-4">
+                    <div className="flex flex-col text-left justify-between mb-4">
                         <h5 className="text-2xl font-bold text-primary1">{pattern.title}</h5>
                         <span className="mb-2 text-sm">by 
                         <Link to={authUser ? `/profile/${pattern.user.username}` : `/login`} className="mb-2 text-sm font-semibold text-accent1d hover:text-accent2"> {pattern.user.username}</Link>
                         </span>
-                        <p className="mb-3 font-normal text-primary3">{pattern.description}</p>
+                        <p className="mb-3 font-normal text-primary3">{pattern.description}</p>                                           
+                                         
                     </div>
+                    <div className="flex justify-center">
+                        <span className="bg-red-100 text-accent1 font-bold text-md mt-2 mx-6 px-4 rounded-full">
+                            {pattern.needleSize}
+                        </span>
+                        <span className="bg-red-100 text-accent1 font-bold text-md mt-2 mx-6 px-4 rounded-full">
+                            {pattern.yarnWeight}
+                        </span>
+                    </div> 
                 </div>               
             </div>          
         </>
