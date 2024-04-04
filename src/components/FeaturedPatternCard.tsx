@@ -45,7 +45,7 @@ export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
                     <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
                 <div className="p-5">
-                    <div className="flex flex-row justify-between">            
+                    <div className="flex flex-row justify-between justify-items-center">            
                         <LikeButton 
                             id={pattern._id}
                             likesCount={likesCount}
