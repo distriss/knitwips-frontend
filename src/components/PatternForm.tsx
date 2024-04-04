@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useState, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import newPatternData from '../interfaces/PatternData';
 import axios from 'axios';
 import Loading from './Loading';
@@ -14,7 +14,7 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('')
   const authContext = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const onSubmit = async (data: newPatternData) => {
@@ -36,7 +36,8 @@ export default function LoginForm() {
         const response = await axios.post('http://localhost:5000/wips/newpattern', patternData)
         console.log('Form submitted')
         console.log('New Pattern Successfully Created', response.data);
-        // navigate(`/wips/${response.data._id}`)
+        const patternId = response.data.pattern._id
+        navigate(`/wips/${user.username}/patterns/${patternId}`)
         setLoading(false);
       } catch (error) {
         if (axios.isAxiosError(error) && error.response) {
@@ -72,6 +73,10 @@ export default function LoginForm() {
                   required: {
                     value: true,
                     message: "A title is required",
+                  },
+                  maxLength: {
+                      value: 60,
+                      message: "Title should not exceed 60 characters",
                   },   
                 })}
                 className="text-lg bg-white appearance-none border-2 border-main2 rounded w-full py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-accent1"
