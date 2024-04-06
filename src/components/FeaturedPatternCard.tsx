@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { PatternDataProps }  from '../interfaces/PatternData';
 import LikeButton from './LikeButton';
+import NumOfLikes from './NumOfLikes';
 import SaveButton from './SaveButton';
 
 export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
@@ -44,19 +45,22 @@ export default function FeaturedPatternCard({ pattern }: PatternDataProps) {
                 <Link to={authUser ? `/wips/${pattern.user.username}/patterns/${pattern._id}` : `/login`}>
                     <img className="rounded-t-lg w-full object-cover h-72" src={pattern.image} alt="Pattern Image" />
                 </Link> 
-                <div className="p-5">
-                    <div className="flex flex-row justify-between justify-items-center">            
-                        <LikeButton 
-                            id={pattern._id}
-                            likesCount={likesCount}
-                            authUserLiked={isLiked}
-                            onLike={onLike}
-                        />
-                        <SaveButton 
-                            id={pattern._id}
-                            authUserSaved={isSaved}
-                            onSave={onSave}
-                        />                       
+                <div className="pt-3 pb-5 px-5">
+                    <div className="flex flex-col text-left"> 
+                        <div className="flex flex-row justify-between"> 
+                            <LikeButton 
+                                id={pattern._id}
+                                likesCount={likesCount}
+                                authUserLiked={isLiked}
+                                onLike={onLike}
+                            />
+                            <SaveButton 
+                                id={pattern._id}
+                                authUserSaved={isSaved}
+                                onSave={onSave}
+                            />
+                        </div>                        
+                        <NumOfLikes likesCount={likesCount}/>
                     </div>
                     <div className="flex flex-col text-left justify-between mb-4">
                         <h5 className="text-2xl font-bold text-primary1">{pattern.title}</h5>

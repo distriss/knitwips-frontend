@@ -61,27 +61,45 @@ export default function SaveButton({ id, authUserSaved, onSave }: SaveButtonProp
     return (
         <> 
         { authUser ? ( 
-        <div className="flex flex-col items-end justify-between mb-4 text-accent2">      
-            <div className="flex flex-col items-end justify-between mb-4 text-accent2"> 
-                <button 
-                  onClick={handleSave} 
-                  key={id}
-                  className={`${effect && "animate-wiggle"}`}
-                  >            
-                    {authUserSaved? (
-                        <svg className="text-accent2 transition ease-in-out hover:scale-125 hover:text-accent1 duration-300" 
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          width="34"
-                          height="34"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M5 3h14a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2z"
-                        />
-                      </svg>
-                    ) : (
-                        <svg className="text-accent1 transition ease-in-out hover:scale-125 hover:text-accent2 duration-300" 
+          <div className="text-accent2">      
+              <button 
+                onClick={handleSave} 
+                key={id}
+                className={`${effect && "animate-wiggle"}`}
+              >            
+                {authUserSaved? (
+                    <svg className="text-accent2 transition ease-in-out hover:scale-125 hover:text-accent1 duration-300" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="34"
+                      height="34"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M5 3h14a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2z"
+                      />
+                  </svg>
+                ) : (
+                    <svg className="text-accent1 transition ease-in-out hover:scale-125 hover:text-accent2 duration-300" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="34"
+                    height="34"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M5 3h14a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2z"
+                      />
+                  </svg>              
+                )}
+            </button>  
+            {errorMessage && <ErrorMessage error={errorMessage} /> }     
+          </div>
+        ) : (
+          <>
+          <Link to="/login">
+              <button>
+                  <svg className="text-accent1 transition ease-in-out hover:scale-125 hover:text-accent2 duration-300" 
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         width="34"
@@ -91,37 +109,13 @@ export default function SaveButton({ id, authUserSaved, onSave }: SaveButtonProp
                           fill="currentColor"
                           d="M5 3h14a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2z"
                         />
-                      </svg>              
-                    )}
-                </button>
-                <div className="mb-4">
-                    {<ErrorMessage error={errorMessage} /> } 
-                </div>
-            </div>
-          </div>
-        ) : (
-          <Link to="/login">
-              <div className="flex flex-col items-end justify-between mb-4 text-accent2">
-                  <button>
-                      <svg className="text-accent1 transition ease-in-out hover:scale-125 hover:text-accent2 duration-300" 
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="34"
-                            height="34"
-                            >
-                            <path
-                              fill="currentColor"
-                              d="M5 3h14a2 2 0 0 1 2 2v14l-7-3-7 3V5a2 2 0 0 1 2-2z"
-                            />
-                      </svg>
-                  </button>
-                  <div className="mb-4">
-                    {<ErrorMessage error={errorMessage} /> } 
-                  </div>
-              </div>
+                  </svg>
+              </button> 
+              {errorMessage && <ErrorMessage error={errorMessage} /> }         
           </Link>
+          
+          </>    
         )}
         </>
     )
-
 }

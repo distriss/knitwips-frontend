@@ -5,3 +5,5 @@ export default interface LikeButtonProps {
     
     onLike: (newLikesCount: number, likeStatus: boolean) => void;
 }
+
+export type LikesCount = Pick<LikeButtonProps, 'likesCount' >;
