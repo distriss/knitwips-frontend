@@ -18,10 +18,8 @@ function App() {
   return (
     <>
         <Routes>
-          <Route path="/guest" element={<Guest />} />
 
           <Route element={<AuthRoute />}>
-            <Route path="/authtest" element={<Auth />} />
             <Route path="/logout" element={<LogOut />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile/:username" element={<Profile />} />
