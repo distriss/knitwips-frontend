@@ -7,8 +7,6 @@ import Feed from './pages/Feed';
 import Profile from './pages/Profile';
 import NewPattern from './pages/NewPattern';
 import Pattern from './pages/Pattern';
-import Guest from './components/Guest';
-import Auth from './components/AuthComponent';
 import AuthRoute from './components/AuthRoute';
 
 
