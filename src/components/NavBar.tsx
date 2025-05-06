@@ -33,17 +33,7 @@ export default function NavBar() {
                     </svg>
                 </button>  
             <div className={`w-full lg:block lg:w-auto ${navOpen ? 'block' : 'hidden'}`} id="navMenu">
-            <ul className="flex flex-col items-center font-medium mt-4 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">
-                <li className="transition ease-in-out hover:scale-125 duration-300">
-                    <Link to="/guest" className={`block py-2 px-3 lg:p-0 rounded lg:bg-transparent text-lg text-nowrap font-semibold text-primary1 hover:text-accent2 ${currentPage === '/guest' ? 'underline decoration-4 decoration-accent1 underline-offset-8' : ''}`}>
-                        Guest
-                    </Link>
-                </li>
-                <li className="transition ease-in-out hover:scale-125 duration-300">
-                    <Link to="/authtest" className={`block py-2 px-3 lg:p-0 rounded lg:bg-transparent text-lg text-nowrap font-semibold text-primary1 hover:text-accent2 ${currentPage === '/authtest' ? 'underline decoration-4 decoration-accent1 underline-offset-8' : ''}`}>
-                        Auth
-                    </Link>
-                </li>
+            <ul className="flex flex-col items-center font-medium mt-4 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-transparent">     
                 <li className="transition ease-in-out hover:scale-125 duration-300">
                     <Link to="/about" className={`block py-2 px-3 lg:p-0 rounded lg:bg-transparent text-lg text-nowrap font-semibold text-primary1 hover:text-accent2 ${currentPage === '/about' ? 'underline decoration-4 decoration-accent1 underline-offset-8' : ''}`}>
                         About Us

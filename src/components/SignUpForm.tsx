@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 import { useNavigate } from 'react-router-dom'
 import { useState, useContext } from 'react';
 import SignUpData from '../interfaces/SignUpData'
@@ -13,7 +12,7 @@ const cookies = new Cookies();
 
 export default function SignUpForm() {
   const form = useForm<SignUpData>();
-  const { register, control, handleSubmit, formState } = form;
+  const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('')
@@ -151,7 +150,6 @@ export default function SignUpForm() {
                 </button>              
             </div>          
         </form>
-        <DevTool control={control} />
     </div>
   );
 }
